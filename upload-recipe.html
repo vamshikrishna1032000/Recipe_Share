@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>RecipeShare</title>
+
+    <script src="https://kit.fontawesome.com/99fa6e3e66.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <header>
+        <div class="navbar">
+            <a class="home-icon"  href="home.html"><i class="fas fa-home"></i></a>
+            <div class="logo">RecipeShare</div>
+            <div class="nav-links">
+                <a href="about-us.html">About Us</a>
+                <a href="login.html"><button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <a class="sidebar-item"  href="saved.html"><i class="fas fa-bookmark"></i> Saved</a>
+            <a class="sidebar-item"  href="my-recipes.html"><i class="fas fa-book"></i> My Recipes</a>
+            <a class="sidebar-item"  href="favourites.html"><i class="fas fa-heart"></i> Favorites</a>
+            <a class="sidebar-item highlighted"  href="upload-recipe.html"><i class="fas fa-cloud-upload-alt"></i> Upload</a>
+        </aside>
+
+        <main>
+            <div class="search-filter">
+
+                <select>
+                    <option value="all">All</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                </select>
+                <div class="search-input">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+         <!---write your code here--->    
+        </main>
+    </div>
+
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 style="color: #333;">Upload Recipe</h3>
+    
+            <!-- Recipe form sections -->
+            <div class="modal-section">
+                <label class="modal-label">Upload Picture:</label>
+                <div class="upload-box" style="border: 2px dashed #ddd; padding: 10px; text-align: center;">
+                    <input type="file" id="recipeImage" accept="image/*" style="display: none;">
+                    <label for="recipeImage" class="upload-button" style="color: #777; cursor:pointer;"> <i class="fas fa-plus"></i> Click to Upload</label>
+                </div>
+            </div>
+    
+            <div class="modal-section">
+                <label class="modal-label" for="recipeTitle">Title:</label>
+                <input type="text" id="recipeTitle" class="modal-input" placeholder="Enter the title">
+            </div>
+    
+            <div class="modal-section">
+                <label class="modal-label" for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" class="modal-textarea" placeholder="Enter the ingredients"></textarea>
+            </div>
+    
+            <div class="modal-section">
+                <label class="modal-label" for="cookingInstructions">Cooking Instructions:</label>
+                <textarea id="cookingInstructions" class="modal-textarea" placeholder="Enter the cooking instructions"></textarea>
+            </div>
+    
+            <div class="modal-section">
+                <label class="modal-label" for="cookingTime">Cooking Time:</label>
+                <input type="text" id="cookingTime" class="modal-input" placeholder="Enter the cooking time">
+            </div>
+    
+            <!-- Buttons -->
+            <div class="button-container">
+                <button class="cancel-button" onclick="closeModal()">Cancel</button>
+                <button class="upload-button" onclick="uploadRecipe()">Upload</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="upload-recipe.js"></script>
+</body>
+</html>
